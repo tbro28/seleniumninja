@@ -14,16 +14,13 @@ import java.util.concurrent.TimeUnit;
 import static com.codeinb8a.java.utilities.GlobalVariables.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LetsKodeItHomePage {
-
+public class NavigateBetweenPages {
 
     private WebDriver driver;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
     private boolean headless = false;
     private String browserDriver = "Chrome";
-
-
 
     @BeforeEach
     public void setUp() {
@@ -36,33 +33,6 @@ public class LetsKodeItHomePage {
         driver.manage().timeouts().implicitlyWait(GlobalVariables.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
     }
 
-
-    /**
-     *
-     * Test navigation page.
-     *
-     */
-    @Test
-    public void testNavigationPractice() throws InterruptedException {
-        System.out.println(driver.getTitle());
-        GlobalActions.waitForSeconds(3);
-
-        assertTrue(driver.getTitle().contains("Home"));
-
-        driver.findElement(By.xpath("//ul[starts-with(@class, 'nav')]//a[contains(@href, 'practice')]")).click();
-
-        if(!driver.findElement(By.xpath("//h1[contains(text(), 'Practice')]")).isDisplayed())
-            GlobalActions.waitForSeconds(1);
-
-        assertTrue(driver.getTitle().contains("Practice"));
-
-        driver.navigate().back();
-
-        assertTrue(driver.getTitle().contains("Home"));
-
-
-    }
-
     /**
      *
      * Test navigation page.
@@ -70,30 +40,38 @@ public class LetsKodeItHomePage {
      */
     @Test
     public void testNavigationLogin() throws InterruptedException {
-        System.out.println(driver.getTitle());
+
+        String title = "";
+        title = driver.getTitle();
+        System.out.println(title);
+
+        String url = "";
+        url = driver.getCurrentUrl();
+        System.out.println(url);
+
+        String currentUrl = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1";
+
+        driver.navigate().to(currentUrl);
+        currentUrl = driver.getCurrentUrl();
+        System.out.println(currentUrl);
         GlobalActions.waitForSeconds(3);
 
-        assertTrue(driver.getTitle().contains("Home"));
-
-        driver.findElement(By.xpath("//a[@href='/sign_in']")).click();
-
-        driver.findElement(By.id("user_email")).sendKeys("Tim");
-        driver.findElement(By.id("user_email")).clear();
-
-        GlobalActions.waitForSeconds(1);
-
-        assertTrue(driver.findElement(By.id("user_email")).getText().isEmpty());
-
         driver.navigate().back();
+        GlobalActions.waitForSeconds(3);
+        driver.navigate().forward();
+        GlobalActions.waitForSeconds(3);
+
+        driver.navigate().refresh();
+        driver.get(url);
+
+        GlobalActions.waitForSeconds(3);
+
+        //Page source
+        String pageSource = driver.getPageSource();
+        System.out.println(pageSource);
 
         assertTrue(driver.getTitle().contains("Home"));
-
-
     }
-
-
-
-
 
     @AfterEach
     public void tearDown() {
@@ -101,3 +79,4 @@ public class LetsKodeItHomePage {
     }
 
 }
+

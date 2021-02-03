@@ -1,7 +1,13 @@
 package com.codeinb8a.java.browsers;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.ProfilesIni;
+
 import static com.codeinb8a.java.utilities.GlobalVariables.APP_URL;
 
 public class BrowserSetup {
@@ -26,6 +32,8 @@ public class BrowserSetup {
         {
             driver = IEDrv.initialize(headless);
         }
+
+        driver.manage().window().maximize();
 
         return driver;
     }
