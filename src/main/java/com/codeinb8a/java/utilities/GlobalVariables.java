@@ -8,5 +8,6 @@ public class GlobalVariables {
     public static final String LINK_URL = "https://tbro28.github.io/Beginning-Selenium/docs/lesson_6/activity_6_B-1/account.html";
     public static final String DRIVER_PATH = "C:\\eclipse\\selenium\\drivers\\";
     public static final int IMPLICIT_WAIT_TIME = 5;
+    public static final boolean DEBUG = true;
 
 }
