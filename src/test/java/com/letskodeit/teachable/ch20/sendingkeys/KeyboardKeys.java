@@ -80,34 +80,41 @@ public class KeyboardKeys {
         if(DEBUG) GlobalActions.waitForSeconds(3);
     }
 
-
-
-
-
-
-
     /**
-     * Test
+     * Test 'Ctrl + a' to select everything.
      */
     @Test
     public void testKeyCombinations() throws InterruptedException {
 
         /**Setup.*/
+        driver.get(KODE_URL);
 
+        driver.findElement(By.id("openwindow")).sendKeys(Keys.CONTROL + "a");
+        if(DEBUG) GlobalActions.waitForSeconds(3);
+
+        driver.findElement(By.id("openwindow")).click();
+        driver.findElement(By.id("openwindow")).sendKeys(Keys.chord(Keys.COMMAND, "a"));
+        if(DEBUG) GlobalActions.waitForSeconds(3);
+
+        /**Can abstract 'selectAll' into a page object.*/
+        String selectAll = Keys.chord(Keys.COMMAND, "a");
+        driver.findElement(By.id("openwindow")).click();
+        driver.findElement(By.id("openwindow")).sendKeys(selectAll);
         if(DEBUG) GlobalActions.waitForSeconds(3);
 
 
     }
 
     /**
-     * Test
+     * Test key press using Action events.
      */
     @Test
     public void testKeyPressEvents() throws InterruptedException {
 
-        /**Setup.*/
-
+        /**Remember that keyDown holds the key down until you call keyUp.*/
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
         if(DEBUG) GlobalActions.waitForSeconds(3);
-
     }
+
 }
