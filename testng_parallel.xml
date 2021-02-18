@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Parameters TestSuite" parallel="methods" thread-count="5">
+    <test name="Test Set 1">
+        <classes>
+            <class name="com.letskodeit.teachable.ch27.parametersandparallel.TestNG_TestParallel1"></class>
+        </classes>
+    </test>
+    <test name="Test Set 2">
+        <classes>
+            <class name="com.letskodeit.teachable.ch27.parametersandparallel.TestNG_TestParallel2"></class>
+        </classes>
+    </test>
+</suite>
