@@ -20,7 +20,7 @@ public class GoogleMapsAPI {
      */
     static {
         try (InputStream input = new FileInputStream(
-                "src/main/resources/invoice.properties")) {
+                "src/test/resources/api.properties")) {
 
             Properties prop = new Properties();
 
