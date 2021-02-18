@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Complete TestSuite">
+    <test name="Regression Test">
+        <classes>
+            <class name="com.letskodeit.teachable.ch25.testngannoasserts.regression.TestNG_TestClass1"></class>
+            <class name="com.letskodeit.teachable.ch25.testngannoasserts.regression.TestNG_TestClass2"></class>
+        </classes>
+    </test>
+    <test name="Smoke Test">
+        <classes>
+            <class name="com.letskodeit.teachable.ch25.testngannoasserts.regression.TestNG_TestClass1"></class>
+        </classes>
+    </test>
+</suite>
