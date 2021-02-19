@@ -16,19 +16,19 @@ public class BrowserSetup {
 
         WebDriver driver = null;
 
-        if (browserDriver == "Chrome")
+        if (browserDriver.equalsIgnoreCase("Chrome"))
         {
             driver = ChromeDrv.initialize(headless);
         }
-        else if (browserDriver == "Firefox")
+        else if (browserDriver.equalsIgnoreCase("Firefox"))
         {
             driver = FirefoxDrv.initialize(headless);
         }
-        else if (browserDriver == "Edge")
+        else if (browserDriver.equalsIgnoreCase("Edge"))
         {
             driver = EdgeDrv.initialize(headless);
         }
-        else if (browserDriver == "IE")
+        else if (browserDriver.equalsIgnoreCase("IE"))
         {
             driver = IEDrv.initialize(headless);
         }

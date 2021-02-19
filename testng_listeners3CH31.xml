@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Listeners TestSuite">
+    <listeners>
+        <listener class-name="com.letskodeit.teachable.listenerspackage.CustomListener3"></listener>
+    </listeners>
+    <test name="Application Test 3">
+        <classes>
+            <class name="com.letskodeit.teachable.ch31.listeners.TestNG_ListenersTest3"></class>
+        </classes>
+    </test>
+    <test name="Application Test 4">
+        <classes>
+            <class name="com.letskodeit.teachable.ch31.listeners.TestNG_ListenersTest4"></class>
+        </classes>
+    </test>
+</suite>
